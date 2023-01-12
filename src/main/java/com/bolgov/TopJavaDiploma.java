@@ -1,0 +1,11 @@
+package com.bolgov;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class TopJavaDiploma {
+    public static void main(String[] args) {
+        SpringApplication.run(TopJavaDiploma.class, args);
+    }
+}
