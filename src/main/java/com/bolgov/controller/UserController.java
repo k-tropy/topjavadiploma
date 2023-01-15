@@ -1,5 +1,6 @@
-package com.bolgov;
+package com.bolgov.controller;
 
+import com.bolgov.entity.User;
 import com.bolgov.service.UserService;
 import lombok.AllArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -18,6 +19,11 @@ public class UserController {
     @GetMapping("/johnsmith")
     public User hello() {
 return  service.johnSmith();
+    }
+
+    @GetMapping("/all")
+    public String all() {
+        return  service.findAll();
     }
 
     @PostMapping("/hello")
