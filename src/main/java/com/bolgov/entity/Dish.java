@@ -16,7 +16,7 @@ import java.time.LocalDate;
 @Entity
 public class Dish extends NamedEntity{
 
-    private String price;
+    private Integer price;
     private LocalDate dish_date;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "restaurant_id", nullable = false)
