@@ -16,13 +16,12 @@ import java.time.LocalDateTime;
 @Entity
 public class Vote extends BaseEntity{
 
-    public static final String GET_WINNER = "Vote.getWinner";
     private LocalDateTime date_time;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY) //TODO менять на lazy
     @JoinColumn(name = "restaurant_id", nullable = false)
     @Nonnull
     private Restaurant restaurant;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     @Nonnull
     private User user;
