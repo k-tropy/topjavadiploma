@@ -4,17 +4,14 @@ import com.bolgov.DTO.DishDTO;
 import com.bolgov.DTO.RestaurantWithDishesDTO;
 import com.bolgov.entity.Dish;
 import org.springframework.core.convert.converter.Converter;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
 public class Dishes2RestaurantsWithDishesDTOConverter implements Converter<List<Dish>, List<RestaurantWithDishesDTO>> {
 
-    @Override
     public List<RestaurantWithDishesDTO> convert(List<Dish> source) {
         HashMap<Long, List<Dish>> map = new HashMap<>();
         source.forEach(dish -> {

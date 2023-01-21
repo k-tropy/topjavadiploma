@@ -8,8 +8,7 @@ INSERT INTO users (name)
 VALUES ('User1'),--100000
        ('User2'),--100001
        ('User3'),--100002
-       ('Admin');
---100003
+       ('Admin');--100003
 
 -- INSERT INTO user_roles (role, user_id)
 -- VALUES ('USER', 100000),
@@ -19,6 +18,11 @@ INSERT INTO restaurant (name)
 VALUES ('Thai Rest'),--100004
        ('Matreshka'),--100005
        ('Italian street');--100006
+
+INSERT INTO users (name) --extra users
+VALUES ('User4'),--100007
+       ('User5'),--100008
+       ('User6');--100009
 
 INSERT INTO dish (name, price, dish_date, restaurant_id)
 VALUES ('Tom Yum Gung', 120, '2023-01-13 10:00:00', 100004),
@@ -60,5 +64,5 @@ VALUES ('2023-01-13 10:00:00', 100004, 100000),
        (CURRENT_TIMESTAMP, 100004, 100000),
        (CURRENT_TIMESTAMP, 100004, 100001),
        (CURRENT_TIMESTAMP, 100005, 100002),
-       (CURRENT_TIMESTAMP, 100006, 100003);
+       (CURRENT_TIMESTAMP, 100005, 100003);
 

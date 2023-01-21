@@ -2,10 +2,7 @@ package com.bolgov.entity;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -15,6 +12,14 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 public class Vote extends BaseEntity{
+
+    @Builder
+    public Vote(Long id, LocalDateTime date_time, Restaurant restaurant, User user) {
+        super(id);
+        this.date_time = date_time;
+        this.restaurant = restaurant;
+        this.user = user;
+    }
 
     private LocalDateTime date_time;
     @ManyToOne(fetch = FetchType.LAZY) //TODO менять на lazy

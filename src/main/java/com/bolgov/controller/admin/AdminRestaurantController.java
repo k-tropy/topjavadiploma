@@ -1,9 +1,9 @@
 package com.bolgov.controller.admin;
 
+import com.bolgov.entity.Restaurant;
 import com.bolgov.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("admin/restaurants")
@@ -15,5 +15,9 @@ public class AdminRestaurantController {
         this.service = service;
     }
 
-    //TODO реализовать добавление ресторана POST
+    @PostMapping("/add")
+    public String addRestaurant(@RequestBody Restaurant restaurant){
+        service.add(restaurant);
+        return "Restaurant " + restaurant.getName() + "was add successfully";
+    }
 }

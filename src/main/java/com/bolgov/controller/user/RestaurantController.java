@@ -1,6 +1,7 @@
 package com.bolgov.controller.user;
 
 import com.bolgov.DTO.RestaurantWithDishesDTO;
+import com.bolgov.entity.Restaurant;
 import com.bolgov.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +23,11 @@ public class RestaurantController {
     @GetMapping("/menu_today")
     public List<RestaurantWithDishesDTO> menuToday() {
         return service.menuToday();
+    }
+
+    @GetMapping("/all")
+    public Iterable<Restaurant> all() {
+        return service.findAll();
     }
 
 }

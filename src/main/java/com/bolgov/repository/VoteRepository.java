@@ -17,12 +17,16 @@ public interface VoteRepository extends CrudRepository<Vote, Long> {
 
     @Query(value = "select name from (select restaurant_id\n" +
             "               from vote\n" +
-            "               where date_time>= :dateTime\n" +
+            "               where date_time >= :startDay\n" +
             "               group by restaurant_id\n" +
             "               having count(id) = (select max(votes) from (select restaurant_id id, count(id) votes\n" +
             "                                                           from vote\n" +
-            "                                                           where date_time>= :dateTime\n" +
+            "                                                           where date_time>= :startDay\n" +
             "                                                           group by restaurant_id))) t1\n" +
             "left join restaurant t2 on t1.restaurant_id = t2.id;", nativeQuery = true)
-    List<String> getWinner(LocalDateTime dateTime);
+    public List<String> getWinner(LocalDateTime startDay);
+
+    @Query(value = "select v from Vote v where v.user.id = :userId and v.date_time >= :startDay")
+    public Optional<Vote> getVoteByUser(Long userId, LocalDateTime startDay);
+
 }
