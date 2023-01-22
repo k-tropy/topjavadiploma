@@ -1,10 +1,7 @@
-package com.bolgov;
+package com.bolgov.config;
 
 import com.bolgov.converter.DisheAddDto2ModelConverter;
 import com.bolgov.converter.Dishes2RestaurantsWithDishesDTOConverter;
-import com.bolgov.service.RestaurantService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
