@@ -6,21 +6,18 @@
 * Разделение прав доступа (пользователь, юзер) - базовая аутентификация(пароль не зашифрован)
 Для авторизации можно использовать пары Login/Password:
 "User1"/"User1",..., "User6"/"User6", "Admin"/"Admin"
-* Для разлогирования:
-http://localhost:8080/login?logout
 Для простоты логинимся в браузере и берём значение заголовка(в curl запросах заменить на своё значение:
-  Set-Cookie: **JSESSIONID=0F77BB9FFC9CB565BE06F09880A50312**
-
+  Set-Cookie: **JSESSIONID=05AD0AFC4AA8E70487285A0DA363D213**
 * ресторан победитель сегодня(*результат голосования - будет два победителя*) 
 http://localhost:8080/user/votes/winner
 * список ресторанов с предложенным на сегодня меню 
 http://localhost:8080/user/restaurants/menu_today
 * добавление ресторанов (Запрос для Windows) 
-curl -XPOST -H "Content-type: application/json" -H "Cookie: JSESSIONID=0F77BB9FFC9CB565BE06F09880A50312" -d "{\"name\":\"NewRest\"}" http://localhost:8080/admin/restaurants/add
+curl -XPOST -H "Content-type: application/json" -H "Cookie: JSESSIONID=05AD0AFC4AA8E70487285A0DA363D213" -d "{\"name\":\"NewRest\"}" http://localhost:8080/admin/restaurants/add
 * просмотр всех ресторанов (необходимо отобразить список для добавления новых блюд в конкретный ресторан - *добавился ресторан с id 100046) 
 http://localhost:8080/user/restaurants/all
 * добавление блюда в новый ресторан (Запрос для Windows) 
-curl -XPOST -H "Content-type: application/json" -H "Cookie: JSESSIONID=0F77BB9FFC9CB565BE06F09880A50312" -d "{\"name\":\"Sosisochki\", \"price\":\"100500\", \"restaurantId\":\"1000555\"}" http://localhost:8080/admin/dishes/add
+curl -XPOST -H "Content-type: application/json" -H "Cookie: JSESSIONID=05AD0AFC4AA8E70487285A0DA363D213" -d "{\"name\":\"Sosisochki\", \"price\":\"100500\", \"restaurantId\":\"100046\"}" http://localhost:8080/admin/dishes/add
 * голосование один из пользователей пытается переголосовать - голос будет принят или нет, в зависимости от времени (Ошибки не обрабатываются - сервер ответит 500)
 http://localhost:8080/user/votes/vote?userId=100003&restaurantId=100006
 
