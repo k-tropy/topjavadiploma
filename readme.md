@@ -16,12 +16,12 @@ http://localhost:8080/user/restaurants/menu_today
 * добавление ресторанов (Запрос для Windows) 
 
 curl -XPOST -H "Content-type: application/json" -H "Cookie: JSESSIONID=05AD0AFC4AA8E70487285A0DA363D213" -d "{\"name\":\"NewRest\"}" http://localhost:8080/admin/restaurants/add
-* просмотр всех ресторанов (необходимо отобразить список для добавления новых блюд в конкретный ресторан - *добавился ресторан с id 100046) 
+* просмотр всех ресторанов (необходимо отобразить список для добавления новых блюд в конкретный ресторан - добавился ресторан с id 100046) 
 http://localhost:8080/user/restaurants/all
 * добавление блюда в новый ресторан (Запрос для Windows) 
 
 curl -XPOST -H "Content-type: application/json" -H "Cookie: JSESSIONID=05AD0AFC4AA8E70487285A0DA363D213" -d "{\"name\":\"Sosisochki\", \"price\":\"100500\", \"restaurantId\":\"100046\"}" http://localhost:8080/admin/dishes/add
-* голосование один из пользователей пытается переголосовать - голос будет принят или нет, в зависимости от времени (Ошибки не обрабатываются - сервер ответит 500)
+* голосование один из пользователей пытается переголосовать - голос будет принят или нет, в зависимости от времени (В случае отказа вернёт сообщение)
 http://localhost:8080/user/votes/vote?userId=100003&restaurantId=100006
 
 _голосуют три дополнительных пользователя_
