@@ -1,6 +1,7 @@
 package com.bolgov.controller.admin;
 
 import com.bolgov.DTO.RestaurantWithDishesDTO;
+import com.bolgov.controller.BaseController;
 import com.bolgov.entity.Restaurant;
 import com.bolgov.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("admin/restaurants")
-public class AdminRestaurantController {
+public class AdminRestaurantController extends BaseController {
     private final RestaurantService service;
 
     @Autowired

@@ -3,6 +3,9 @@ package com.bolgov.service;
 import com.bolgov.entity.Restaurant;
 import com.bolgov.entity.User;
 import com.bolgov.entity.Vote;
+import com.bolgov.exception.ExceptionsCode;
+import com.bolgov.exception.NotFoundException;
+import com.bolgov.exception.VoteException;
 import com.bolgov.repository.RestaurantRepository;
 import com.bolgov.repository.UserRepository;
 import com.bolgov.repository.VoteRepository;
@@ -20,13 +23,10 @@ import java.util.Optional;
 @Slf4j
 @Service
 public final class VoteService {
-
     private final LocalDateTime START_OF_TODAY = LocalDate.now().atStartOfDay();
-
     private final VoteRepository repository;
     private final UserRepository userRepository;
     private final RestaurantRepository restaurantRepository;
-
 
     @Autowired
     public VoteService(VoteRepository repository, UserRepository userRepository, RestaurantRepository restaurantRepository) {
@@ -55,8 +55,8 @@ public final class VoteService {
                     .date_time(LocalDateTime.now())
                     .build());
         } else {
-            log.warn("Restaurant with id: %s or user with id: %s were not found");
-            throw new RuntimeException("Пользователь или ресторан не существует");
+            log.warn(String.format("Restaurant with id: %s or user with id: %s were not found", restaurantId, userId));
+            throw new NotFoundException(String.format(ExceptionsCode.REST_OR_USER_NOT_FOUND.getDescription(), restaurantId, userId));
         }
     }
 
@@ -65,7 +65,7 @@ public final class VoteService {
             vote.setRestaurant(restaurantRepository.findById(restaurantId).get());
             return repository.save(vote);
         } else {
-            throw new RuntimeException("После 11:00 нельзя поменять свой выбор");
+            throw new VoteException(ExceptionsCode.CANT_REVOTE.getDescription());
         }
     }
 

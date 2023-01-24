@@ -37,7 +37,7 @@ public final class RestaurantService {
     }
 
     public void add(Restaurant restaurant) {
-        repository.save(restaurant);//throw new IllegalArgumentException(message) Method threw 'org.springframework.dao.DataIntegrityViolationException' exception.(name = null);
+        repository.save(restaurant);
     }
 
     public Iterable<Restaurant> findAll() {
