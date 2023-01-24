@@ -21,7 +21,7 @@ public class AdminRestaurantController {
     @PostMapping("/add")
     public String addRestaurant(@RequestBody Restaurant restaurant){
         service.add(restaurant);
-        return "Restaurant " + restaurant.getName() + "was add successfully";
+        return "Restaurant " + restaurant.getName() + " was add successfully";
     }
 
     @GetMapping("/menu_today_test")

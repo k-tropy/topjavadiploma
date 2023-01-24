@@ -52,7 +52,9 @@ public class WebSecurityConfig {
                                         .requestMatchers(new AntPathRequestMatcher("/user/**")).hasRole("USER")
                                         .requestMatchers(new AntPathRequestMatcher("/h2/**")).permitAll()
                                         .requestMatchers(new AntPathRequestMatcher("/login/**")).permitAll()
-                                        .and().formLogin().permitAll();
+                                        .anyRequest().authenticated()
+                                        .and()
+                                        .formLogin().defaultSuccessUrl("/user/votes/winner", true).permitAll();
                             } catch (Exception e) {
                                 throw new RuntimeException(e);
                             }

@@ -22,6 +22,6 @@ public class AdminDishController {
     @PostMapping("/add")
     public String addRestaurant(@RequestBody DishAddDTO addDTO){
         service.add(addDTO);
-        return "Dish " + addDTO.getName() + "was add successfully";
+        return "Dish " + addDTO.getName() + " was add successfully";
     }
 }
