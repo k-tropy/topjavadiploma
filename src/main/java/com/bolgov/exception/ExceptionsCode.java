@@ -9,10 +9,11 @@ public enum ExceptionsCode {
 
     private String description;
 
-    ExceptionsCode(String s) {
+    ExceptionsCode(String description) {
+        this.description = description;
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 }
