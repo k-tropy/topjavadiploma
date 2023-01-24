@@ -4,25 +4,31 @@ DELETE FROM users;
 DELETE FROM restaurant;
 ALTER SEQUENCE global_seq RESTART WITH 100000;
 
-INSERT INTO users (name)
-VALUES ('User1'),--100000
-       ('User2'),--100001
-       ('User3'),--100002
-       ('Admin');--100003
-
--- INSERT INTO user_roles (role, user_id)
--- VALUES ('USER', 100000),
---        ('ADMIN', 100001);
+INSERT INTO users (name, password)
+VALUES ('User1', 'User1'),--100000
+       ('User2', 'User2'),--100001
+       ('User3', 'User3'),--100002
+       ('Admin', 'Admin');--100003
 
 INSERT INTO restaurant (name)
 VALUES ('Thai Rest'),--100004
        ('Matreshka'),--100005
        ('Italian street');--100006
 
-INSERT INTO users (name) --extra users
-VALUES ('User4'),--100007
-       ('User5'),--100008
-       ('User6');--100009
+INSERT INTO users (name, password) --extra users
+VALUES ('User4', 'User4'),--100007
+       ('User5', 'User5'),--100008
+       ('User6', 'User6');--100009
+
+INSERT INTO user_roles (role, user_id)
+VALUES ('ROLE_USER', 100000),
+       ('ROLE_USER', 100001),
+       ('ROLE_USER', 100002),
+       ('ROLE_USER', 100003),
+       ('ROLE_USER', 100007),
+       ('ROLE_USER', 100008),
+       ('ROLE_USER', 100009),
+       ('ROLE_ADMIN', 100003);
 
 INSERT INTO dish (name, price, dish_date, restaurant_id)
 VALUES ('Tom Yum Gung', 120, '2023-01-13 10:00:00', 100004),
