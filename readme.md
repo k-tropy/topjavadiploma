@@ -23,13 +23,13 @@ http://localhost:8080/user/restaurants/all
 curl -XPOST -H "Content-type: application/json" -d "{\"name\":\"Sosisochki\", \"price\":\"100500\", \"restaurantId\":\"100046\"}" http://localhost:8080/admin/dishes/add
 * голосование один из пользователей пытается переголосовать - голос будет принят или нет, в зависимости от времени
 http://localhost:8080/user/votes/vote?userId=100003&restaurantId=100006
-  + голосуют три дополнительных пользователя
 
+_голосуют три дополнительных пользователя_
 http://localhost:8080/user/votes/vote?userId=100007&restaurantId=100046
 http://localhost:8080/user/votes/vote?userId=100008&restaurantId=100046
 http://localhost:8080/user/votes/vote?userId=100009&restaurantId=100046
 
-  при запросе ресторана победителя результат изменится - теперь будет один новый ресторан 
+_при запросе ресторана победителя результат изменится - теперь будет один новый ресторан_ 
 http://localhost:8080/user/votes/winner
 
 #### Реализовано технические моменты:
